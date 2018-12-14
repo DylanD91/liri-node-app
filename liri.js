@@ -1,6 +1,7 @@
 require("dotenv").config();
 var keys = require('./javascript/keys');
 var Spotify = require('node-spotify-api');
+
 //added to format table 
 var cTable = require('console.table');
 var request = require('request');
@@ -35,21 +36,19 @@ if (process.argv[2] == 'concert-this' ) {
     });
 
 
-    // Name of the venue
-    // Venue location
-    // Date of the Event (use moment to format this as "MM/DD/YYYY")   
+    // Name of and Venue location  
 } else if ( process.argv[2] == 'spotify-this-song') {
 
     var songName = process.argv.slice(3).join(" ");
 
     if (songName == undefined) {
-        songName = "The sign by Ace of Base";
+        songName = "Hold On by Alabama Shakes";
     } 
    
 
      spotify.search({ type: 'track', query: songName, limit: 10  }, function(err, data) {
             if (err) {
-            return console.log('Error occurred: ' + err);
+            return console.log('An error has occurred: ' + err);
             }
 
             var tableArray = [];
@@ -79,7 +78,7 @@ if (process.argv[2] == 'concert-this' ) {
 
 
 
-// If no song is provided then your program will default to "The Sign" by Ace of Base.
+// If no movie is definied... Mr. Nobody will be selected
 } else if ( process.argv[2] == 'movie-this') {
     var movieName = process.argv.slice(3).join(" ");
 
@@ -88,7 +87,7 @@ if (process.argv[2] == 'concert-this' ) {
     } 
 
     request('http://www.omdbapi.com/?i=tt3896198&apikey=55e8eecb&t=' + process.argv[3], function (error, response, body) {
-        
+        // Results 
         var result  =  JSON.parse(body);
         console.log("Title :" + result.Title);
         console.log("Year :" + result.Released);
