@@ -173,3 +173,27 @@ BONUS
 In addition to logging the data to your terminal/bash window, output the data to a .txt file called log.txt.
 Make sure you append each command you run to the log.txt file. 
 Do not overwrite your file each time you run a command.
+
+Screenshots:
+
+<img width="1029" alt="screen shot 2018-12-15 at 9 08 00 pm" src="https://user-images.githubusercontent.com/43393527/50049573-e0100800-00ad-11e9-92ce-b09743be6a03.png">
+
+<img width="1026" alt="screen shot 2018-12-15 at 9 06 48 pm" src="https://user-images.githubusercontent.com/43393527/50049576-ff0e9a00-00ad-11e9-95a6-d0d6e8e6106b.png">
+
+<img width="1029" alt="screen shot 2018-12-15 at 9 05 50 pm" src="https://user-images.githubusercontent.com/43393527/50049580-09c92f00-00ae-11e9-8e8e-533889a354f8.png">
+
+
+<img width="1025" alt="screen shot 2018-12-15 at 9 05 00 pm" src="https://user-images.githubusercontent.com/43393527/50049585-1f3e5900-00ae-11e9-9174-74da09087b98.png">
+
+<img width="1025" alt="screen shot 2018-12-15 at 9 05 00 pm" src="https://user-images.githubusercontent.com/43393527/50049588-38dfa080-00ae-11e9-9821-ca1e3bf3567d.png">
+
+
+
+
+
+
+
+
+
+
+
