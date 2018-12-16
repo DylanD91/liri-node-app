@@ -1,4 +1,7 @@
+// Reading and setting any environment variables with the dotenv package
 require("dotenv").config();
+
+// Keys Information
 var keys = require('./javascript/keys');
 var Spotify = require('node-spotify-api');
 
@@ -40,9 +43,9 @@ if (process.argv[2] == 'concert-this' ) {
 } else if ( process.argv[2] == 'spotify-this-song') {
 
     var songName = process.argv.slice(3).join(" ");
-
+// If the song name is undefinded, play The Sign by Ace of Base
     if (songName == undefined) {
-        songName = "Hold On by Alabama Shakes";
+        songName = "The Sign by Ace of Base";
     } 
    
 
