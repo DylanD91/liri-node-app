@@ -1,4 +1,11 @@
 // Variables
+// I had to get a lot of help from classmates with this assignment. This is defintely one of the most challenging ones for me
+// I have tried different approaches for how to code, and this way got me the closest to getting the Liri to work
+// However- it doesnt give me any of the information i request. It listens to the commands, doesn't show any errors
+// But it just keeps having the console.log message appear, instead of results. 
+// I will continute to work on this through out christmas break, because I want to at least get it to work!!!!
+
+// Variables
 require('dotenv').config();
 let axios = require('axios');
 let spotifyThis = require('node-spotify-api');
@@ -11,6 +18,7 @@ console.log('Please Enter what you are looking for. Movie-this to search movies 
 var whatyouwant = process.argv[2];
 var data = process.argv[3];
 
+// commands
 console.log(whatyouwant);
 if(whatyouwant !== ""){
     switch(whatyouwant){
@@ -29,6 +37,8 @@ if(whatyouwant !== ""){
     }
 }
 
+// Function for the command to get band information
+
 function bandInTownFunc(band){
     if(band.includes(' ')){
         band = band.replace(' ','%20');
@@ -45,11 +55,13 @@ function bandInTownFunc(band){
                 "Event Date: " + moment(data.datetime, 'YYYY-MM-DDTHH:mm').utc().format("MM/DD/YYYY")+'\n'+
                 "=========================="+'\n',function(error){if(error)console.log(error)}
             );
-
-  });
+            
+        });
       }
 );
 }
+
+// Function for the command to get song information through Spotify
 function SpotifyThisFunc(song){
     if(song.includes(' ')){
         song = song.replace(' ','%20');
@@ -63,7 +75,7 @@ function SpotifyThisFunc(song){
             console.log("Song Name: "+song.name);
             console.log("Preview Link: "+song.preview_url);
             console.log("The Song Album: "+song.album.name);
-   
+            
             //File
             fs.appendFile('song.txt',
                 "Artist: "+song.artists[0].name+'\n'+
@@ -75,21 +87,14 @@ function SpotifyThisFunc(song){
             );
         });
 
-    });
+      });
+}
 
-
-    // Name of and Venue location  
-} else if ( process.argv[2] == 'spotify-this-song') {
-
-    var songName = process.argv.slice(3).join(" ");
-// If the song name is undefinded, play The Sign by Ace of Base
-    if (songName == undefined) {
-        songName = "The Sign by Ace of Base";
-    } 
+// Function for the command to get movie information
 function omdbThisMovie(movieName){
     if(movieName.includes(' ')){
         movieName = movieName.replace(' ','%20');
-            }
+    }
 
     let queryUrl = `http://www.omdbapi.com/?t=${movieName}&y=&plot=short&apikey=trilogy`;
     axios.get(queryUrl).then(
@@ -112,16 +117,16 @@ function omdbThisMovie(movieName){
                 "Plot: " + response.data.Plot+'\n'+
                 "Actors: " + response.data.Actors+'\n'+
                 "=========================="+'\n',function(error){if(error)console.log(error)});
-                }
+        }
     );
-            }
-      
+}
+
 function justDoSomething(){
     fs.readFile('random.txt', "utf8", function(error, data){
       var song = data.split(',');
-       
+  
       SpotifyThisFunc(song[1]);
     });
-    } 
+  }
 
-   
+
