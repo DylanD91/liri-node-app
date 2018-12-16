@@ -1,7 +1,7 @@
 // Reading and setting any environment variables with the dotenv package
 require("dotenv").config();
 
-// Keys Information
+//Variables
 var keys = require('./javascript/keys');
 var Spotify = require('node-spotify-api');
 
@@ -18,7 +18,7 @@ var spotify = new Spotify({
   });
 
 
-
+// FUNCTIONS
 
 if (process.argv[2] == 'concert-this' ) {
    
@@ -74,13 +74,6 @@ if (process.argv[2] == 'concert-this' ) {
        
     });
 
-
-
-
-
-
-
-
 // If no movie is definied... Mr. Nobody will be selected
 } else if ( process.argv[2] == 'movie-this') {
     var movieName = process.argv.slice(3).join(" ");
@@ -107,10 +100,3 @@ if (process.argv[2] == 'concert-this' ) {
     console.log('do what it says')
 }
    
-//  spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
-//     if (err) {
-//       return console.log('Error occurred: ' + err);
-//     }
-   
-//   console.log(data); 
-//   });
